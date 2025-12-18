@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            padding:20px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        
+        .main-content {
+            background-color: #cccccc;
+            max-width: 640px; 
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #999;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        .content-info {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        
+        .input-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+
+       
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        
+        input, select {
+            width: 100%; 
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        
+        .button-container {
+            grid-column: span 2; 
+            margin-top: 30px;
+        }
+
+        button {
+            width: 100%; 
+            padding: 15px;
+            cursor: pointer;
+            background-color: #4cb050;
+            color: white;
+            border-radius: 4px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #439e47;
+        }
+
+        #optional {
+            color: #757575;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @media (max-width: 500px) {
+            .input-form {
+                grid-template-columns: 1fr;
+            }
+            .button-container {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Form sign up</h3>
+    
+    <div class="main-content">
+        <h1>Try a free sample</h1>
+        <p class="content-info">
+            Sign up to get a coupon you can redeem at your nearest Dancing Goat cafe for a sample of the Colombia Carlos
+            Imbachi coffee. We'll also make sure you don't miss out on news introducing the new coffees that we add to
+            our store regularly.
+        </p>
+
+        <form class="input-form">
+            <!-- Cột bên trái -->
+            <div class="col">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" placeholder="John">
+
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="john@example.com">
+
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="London">
+
+                <label for="zipcode">Zip code</label>
+                <input type="text" id="zipcode" placeholder="EC2Y8DS">
+            </div>
+
+            <!-- Cột bên phải -->
+            <div class="col">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" placeholder="Smith">
+
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="Silk St">
+
+                <label for="state">State <span id="optional">(optional)</span></label>
+                <input type="text" id="state">
+
+                <label for="country">Country</label>
+                <select id="country">
+                    <option value="uk">United Kingdom</option>
+                    <option value="us">America</option>
+                    <option value="it">Italy</option>
+                    <option value="br">Brazil</option>
+                </select>
+            </div>
+
+           
+            <div class="button-container">
+                <button type="submit">SEND ME FREE COFFEE</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

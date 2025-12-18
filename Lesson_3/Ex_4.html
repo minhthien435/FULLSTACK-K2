@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .main-container{
+            background-color: #cccccc;
+            width:650px;
+        }
+        .main-input{
+            padding:10px;
+            display: grid;
+            grid-template-columns: 200px 200px;
+            gap: 20px 30px;
+
+        }
+        input{
+            padding:5px;
+        }
+        .text-message{
+            margin:10px;
+            
+        }
+        h2{
+            padding:10px;
+        }
+        .btn-info{
+            display: flex;
+            align-items: center;
+            gap:5px;
+
+        }
+        button{
+            margin-left:10px;
+            background-color:#686868;
+            border:none;
+            color:white;
+            border-radius:5px;
+            padding-top:6px;
+            padding-bottom:6px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h2>Get in touch with us by filling contact form below</h2>
+        <div class="main-input">
+        <input type="text" placeholder="*Enter your full name">
+        <input type="email" placeholder="*Enter your email address">
+        <input type="text" placeholder="Enter your phone number">
+        </div>
+        <div class="text-message">
+            <textarea rows="10" cols="80" name="message" id="message" placeholder="*Your message here"></textarea>
+        </div>
+        <div class="btn-info">
+        <button>Send message</button>
+        <p>*Please fill all require form field,thanks!</p>
+        </div>
+       
+    </div>
+</body>
+</html>

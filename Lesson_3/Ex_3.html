@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        
+        .main-container {
+            display: grid;
+            grid-template-columns: 200px 1fr; 
+            gap: 15px 10px; 
+            max-width: 600px;
+            align-items: start;
+            
+        }
+
+      
+        .first-col {
+            grid-column: 1; 
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            height: 100%; 
+        }
+
+        .second-col {
+            grid-column: 2; 
+            width: 100%;
+            max-width: 300px; 
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        option:nth-child(1){
+            text-align: center;
+        }
+        
+        .options-group {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column; 
+            gap: 8px;
+        }
+
+        .options-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .options-group input {
+            margin-right: 10px;
+            margin-top: 0;
+        }
+        .button-group {
+            grid-column: 2; 
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 4px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>#Form Login</h1>
+
+    <form class="login-form">
+        <div class="main-container">
+            
+            <label class="first-col">Username:</label>
+            <input class="second-col" type="text" name="username">
+
+            <label class="first-col">Password:</label>
+            <input class="second-col" type="password" name="password">
+
+            <label class="first-col">City of Employment:</label>
+            <input class="second-col" type="text" name="city">
+
+            <label class="first-col">Web server:</label>
+            <select class="second-col" name="server">
+                <option value="0">— Choose a server —</option>
+                <option value="1">Biên Hòa</option>
+                <option value="2">Hồ Chí Minh</option>
+            </select>
+
+            <label class="first-col">Please specify your role:</label>
+            <div class="options-group">
+                <label><input type="radio" name="role" value="Admin"> Admin</label>
+                <label><input type="radio" name="role" value="Engineer"> Engineer</label>
+                <label><input type="radio" name="role" value="Manager"> Manager</label>
+                <label><input type="radio" name="role" value="Guest"> Guest</label>
+            </div>
+
+            <label class="first-col">Single Sign-on to the following:</label>
+            <div class="options-group">
+                <label><input type="checkbox" name="signin" value="Mail"> Mail</label>
+                <label><input type="checkbox" name="signin" value="Payroll"> Payroll</label>
+                <label><input type="checkbox" name="signin" value="Self-service"> Self-service</label>
+            </div>
+
+            <div class="button-group">
+                <button type="button">Login</button>
+                <button type="reset">Reset</button>
+            </div>
+            
+        </div>
+    </form>
+
+</body>
+</html>
