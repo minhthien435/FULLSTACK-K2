@@ -1,0 +1,25 @@
+.list-title{
+    text-decoration: underline;
+    font-family: sans-serif;
+    font-size:20px;
+    margin-bottom:15px;
+}
+.emoji-list{
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
+.emoji-list li{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:20px;
+    font-weight:bold;
+    display: flex;
+    align-items: center;
+    margin-bottom:10px;
+}
+.emoji-list li:before{
+    content:"😊";
+    margin-right:15px;
+    font-size:24px;
+    display: inline-block;
+}

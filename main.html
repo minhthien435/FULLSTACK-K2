@@ -1,25 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách bài tập</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --hover-color: #2980b9;
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+            --accent-color: #f1c40f; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1.main-title {
+            text-align: center;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        fieldset {
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        fieldset:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 5px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-transform: capitalize;
+        }
+        .exercise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .exercise-item {
+            background-color: #f9f9f9;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .exercise-item h2 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .exercise-item::after {
+            content: '→'; 
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-item:hover {
+            background-color: #fff9e6; 
+            padding-left: 25px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .exercise-item:hover::after {
+            transform: translateX(10px);
+            color: var(--accent-color);
+        }
+
+        .status-tag {
+            font-family: monospace;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Link bài tập Lesson 1:</h1>
-    <a href="./Lesson_1/Ex_1.html"><h2>Link bài tập 1:</h2></a>
-    <a href="./Lesson_1/Ex_2.html"><h2>Link bài tập 2:</h2></a>
-    <a href="./Lesson_1/Ex_3.html"><h2>Link bài tập 3:</h2></a>
-    <h1>Link bài tập Lesson 2:</h1>
-    <a href="./Lesson_2/Ex_1.html"><h2>Link bài tập 1:</h2></a>
-    <a href="./Lesson_2/Ex_2.html"><h2>Link bài tập 2:</h2></a>
-    <a href="./Lesson_2/Ex_3.html"><h2>Link bài tập 3:</h2></a>
-    <a href="./Lesson_2/Ex_4.html"><h2>Link bài tập 4:</h2></a>
-    <h1>Link baì tập Lesson 3: </h1>
-    <a href="./Lesson_3/Ex_1.html"><h2>Link bài tập 1:</h2></a>
-    <a href="./Lesson_3/Ex_2.html"><h2>Link bài tập 2:</h2></a>
-    <a href="./Lesson_3/Ex_3.html"><h2>Link bài tập 3:</h2></a>
-    <a href="./Lesson_3/Ex_4.html"><h2>Link bài tập 4:</h2></a>
+
+    <div class="container">
+        <h1 class="main-title">Hành trình học tập của tôi</h1>
+
+        <!-- Lesson 1 -->
+        <fieldset>
+            <legend>Lesson 1</legend>
+            <div class="exercise-list">
+                <a href="./Lesson_1/Ex_1.html">
+                    <div class="exercise-item"><h2>Bài tập 1</h2></div>
+                </a>
+                <a href="./Lesson_1/Ex_2.html">
+                    <div class="exercise-item"><h2>Bài tập 2</h2></div>
+                </a>
+                <a href="./Lesson_1/Ex_3.html">
+                    <div class="exercise-item"><h2>Bài tập 3</h2></div>
+                </a>
+            </div>
+        </fieldset>
+
+        <!-- Lesson 2 -->
+        <fieldset>
+            <legend>Lesson 2</legend>
+            <div class="exercise-list">
+                <a href="./Lesson_2/Ex_1.html">
+                    <div class="exercise-item"><h2>Bài tập 1</h2></div>
+                </a>
+                <a href="./Lesson_2/Ex_2.html">
+                    <div class="exercise-item"><h2>Bài tập 2</h2></div>
+                </a>
+                <a href="./Lesson_2/Ex_3.html">
+                    <div class="exercise-item"><h2>Bài tập 3</h2></div>
+                </a>
+                <a href="./Lesson_2/Ex_4.html">
+                    <div class="exercise-item"><h2>Bài tập 4</h2></div>
+                </a>
+            </div>
+        </fieldset>
+
+        <!-- Lesson 3 -->
+        <fieldset>
+            <legend>Lesson 3</legend>
+            <div class="exercise-list">
+                <a href="./Lesson_3/Ex_1.html">
+                    <div class="exercise-item"><h2>Bài tập 1</h2></div>
+                </a>
+                <a href="./Lesson_3/Ex_2.html">
+                    <div class="exercise-item"><h2>Bài tập 2</h2></div>
+                </a>
+                <a href="./Lesson_3/Ex_3.html">
+                    <div class="exercise-item"><h2>Bài tập 3</h2></div>
+                </a>
+                <a href="./Lesson_3/Ex_4.html">
+                    <div class="exercise-item"><h2>Bài tập 4</h2></div>
+                </a>
+            </div>
+        </fieldset>
+
+        <!-- Lesson 4 -->
+        <fieldset>
+            <legend>Lesson 4</legend>
+            <div class="exercise-list">
+                <a href="./Lesson_4/Exercise/Ex_1.html">
+                    <div class="exercise-item"><h2>Bài tập 1</h2></div>
+                </a>
+                <a href="./Lesson_4/Exercise/Ex_2.html">
+                    <div class="exercise-item"><h2>Bài tập 2</h2></div>
+                </a>
+                <a href="./Lesson_4/Exercise/Ex_3.html">
+                    <div class="exercise-item"><h2>Bài tập 3</h2></div>
+                </a>
+                <a href="./Lesson_4/Exercise/Ex_4.html">
+                    <div class="exercise-item"><h2>Bài tập 4</h2></div>
+                </a>
+            </div>
+        </fieldset>
+    </div>
+
 </body>
-      
 </html>
