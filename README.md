@@ -61,3 +61,13 @@ body{
 - background-attachment: xác định cách hiển thị của hình ảnh nền
 - background-origin: xác định điểm bắt đầu của hình ảnh nền
 - background-clip: xác định vùng hiển thị của hình ảnh nền
+### border
+```css
+.box{
+   width:0;
+   height:0;
+   border-width:50px;
+   border-style:solid;
+   border-color: transparent transparent blueviolet transparent;
+   border-top-width:0;
+}
