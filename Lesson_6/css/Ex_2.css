@@ -1,0 +1,84 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto",serif;
+    Background: #ebf5fe;
+}
+.icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-size:20px;
+}
+.icon-1{
+     background:linear-gradient(135deg,#ff9a9e 0%, #ff6a88 100%);
+}
+.icon-2{
+     background:linear-gradient(135deg,#018415 0%, #0cf110 100%);
+}
+.icon-3{
+     background:linear-gradient(135deg,#d96d01 0%, #ecb323 100%);
+}
+.icon-4{
+    background:linear-gradient(135deg,#032db8 0%, #032bf0 100%);
+}
+.icon-5{
+    background:linear-gradient(135deg,#e70fca 0%, #ac0696 100%);
+
+}
+.icon-6{
+    background:linear-gradient(135deg,#058d03 0%, #1ee23f 100%);
+}
+.card{
+    border-radius:10px;
+    padding:10px 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+       transition: 
+        transform 0.6s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+.logo_title{
+   align-items: center;
+    display: flex;
+    gap:20px;
+}
+.logo_title h1{
+    width:300px;
+    font-size:20px;
+}
+.content p{
+    color:rgb(154, 151, 151)
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,340px);
+    gap:20px 20px;
+    justify-content: center;
+    margin: 100px auto;
+}
+.content{
+    margin-top:20px;
+    margin-bottom:30px;
+}
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color:blue;
+}
+.card:hover{
+    border-width:2px;
+    border-style:solid;
+    border-color:#ff4d4f;
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
