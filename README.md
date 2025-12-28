@@ -61,7 +61,7 @@ body{
 - background-attachment: xác định cách hiển thị của hình ảnh nền
 - background-origin: xác định điểm bắt đầu của hình ảnh nền
 - background-clip: xác định vùng hiển thị của hình ảnh nền
-### border
+### border 
 ```css
 .box{
    width:0;
@@ -71,3 +71,17 @@ body{
    border-color: transparent transparent blueviolet transparent;
    border-top-width:0;
 }
+```
+### Thuộc tính position
+- Thuộc tính position trong css cho phép kiểm soát cách phần tử được định vị trong layout.
+- static: định vị mặc định của phần tử.Phần tử sẽ theo dòng và không bị ảnh hưởng bởi thuộc tính top,bottom,left,right, hoặc z-index.
+- relative: định vị phần tử theo vị trí ban đầu và có thẻ dịch chuyển bằng các thuộc tính top,bottom,left,right
+- absolute: định vị phần tử một cách tuyệt đối dựa trên phần tử cha gần nhất có thuộc tính position khác với static.Phần tử sẽ di chuyển dựa trên các thuộc tính top,bottom,left,right.
+- fixed: định vị phần tử một cách tuyệt đối dựa trên trình duyệt.Phần tử sẽ luôn hiển thị kể cả khi cuộn trang.
+- sticky: Kết hợp giữa relative và fixed.Phần tử sẽ định vị như relative khi nằm trong một vùng nhất định và sau đó chuyển sang fixed khi cuộn trang.
+### Một số kỹ thuật nâng cao:
+- z-index:thuộc tính xác định vị trí sắp xếp 3D của phần tử.Giá trị lớn hơn sẽ đặt phần tử phía trên các phần tử khác.
+- overflow:thuộc tính overflow xác định cách xử lý nội dung của phần tử khi nó vượt kích thước chỉ định.
+### margin,padding (inline)
+- thuộc tính visibility ẩn và hiện thành phần html vẫn giữ không gian.
+- Thuộc tính opacity: làm mờ 

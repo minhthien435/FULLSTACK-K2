@@ -1,0 +1,26 @@
+.box{
+    width:200px;
+    height:200px;
+    border:1px solid red;
+     overflow:auto;
+}
+/* .box p{
+    width:400px;
+   
+} */
+/* 
+overflow
+visible hiển thị nội dung bị tràn
+hidden ản nội dung bị tràn
+scroll ẩn và hiển thị thanh cuôn
+auto ẩn và hiển thị thanh cuôn chỉ hiển thị thanh cuộn
+*/
+.box::-webkit-scrollbar{
+    width:5px;
+}
+.box::-webkit-scrollbar-track{
+    background-color:blue;
+}
+.box::-webkit-scrollbar-thumb{
+    background-color:green;
+}
