@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --banner-color:#bf4240;
+}
+html{
+    font-size:62.5%;
+}
+body{
+    font-family: "Asap",sans-serif;
+}
+.banner-image{
+    position:relative;
+}
+.banner-image img{
+    width:100%;
+}
+.box-info h3{
+    font-size:2.2rem;
+    color:var(--banner-color);
+}
+.banner-image .details{
+    font-size:1.4rem;
+}
+.banner-image .box-info .location{
+    font-size:1.2rem;
+}
+.banner-image .box-info .location i{
+    color:var(--banner-color);
+}
+.banner-image .box-info{
+    position:absolute;
+    background-color:rgb(225, 229, 232,0.8);
+    padding:20px 20px;
+    line-height: 2.3;
+    width:600px;
+    height:200px;
+    top:25%;
+    left:15%;
+}
+.banner-price{
+    background-color:var(--banner-color);
+    display: inline-block;
+    padding:1.2rem 2.5rem;
+    color:white;
+    font-weight:bold;
+    font-size:1.8rem;
+    position:absolute;
+    top:calc(65% - 15px);
+    left:calc(50% - 100px);
+}

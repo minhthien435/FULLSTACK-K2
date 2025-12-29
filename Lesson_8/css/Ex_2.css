@@ -1,0 +1,79 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Asap",sans-serif;
+}
+html{
+    font-size:62.5%;
+}
+.banner-profile{
+    position:relative;
+    overflow:hidden;
+}
+.background img{
+    width:100%;
+    height:50vh;
+    object-fit:cover;
+    object-position: center;
+    display: block;
+    background-size:50%;
+}
+.image-logo img{
+    width:250px;
+    height:200px;
+ 
+}
+.profile-info{
+    max-height:auto;
+    display: inline-flex;
+    width:45%;
+    padding:10px;
+    position:absolute;
+    top:50%;
+    left:5%;
+    gap:25px;
+}
+.profile-info-details h2{
+    font-size:3rem;
+}
+.profile-info-details p{
+    font-size:1.8rem;
+}
+.profile-info-details{
+    color:rgb(247, 243, 243);
+    line-height: 2.2 ;
+}
+.profile-info-details .details-numbers{
+    display: flex;
+    gap:35px;
+}
+.details-numbers span{
+    font-weight:bold;
+    font-size:2.5rem;
+}
+
+.nav-content{
+    box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
+}
+.nav-content ul li{
+    list-style-type: none;
+    font-size:1.8rem;
+    margin-right:30px;
+    cursor:pointer;
+    font-weight:bold;
+    transition: all 0.1s ease;
+}
+.nav-content ul li:hover{
+    color:rgb(225, 67, 10);
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    text-decoration-thickness: 3px;
+}
+.nav-content ul {
+    display: flex;
+    justify-content: flex-end;
+    padding:15px;
+}

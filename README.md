@@ -85,3 +85,13 @@ body{
 ### margin,padding (inline)
 - thuộc tính visibility ẩn và hiện thành phần html vẫn giữ không gian.
 - Thuộc tính opacity: làm mờ 
+### list style
+- list-stype-position:inside/ outside
+- list-style-type: kieu danh sach
+- none --> khong o dinh dang danh sach
+- circle
+- square
+- decimal
+- decimal-leading-zero
+- lower-alpha
+- upper-alpha
