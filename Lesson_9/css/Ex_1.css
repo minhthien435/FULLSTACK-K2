@@ -1,0 +1,176 @@
+ /* Import Fonts từ code của bạn */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 50px;
+        }
+
+        .timeline-container {
+            max-width: 600px;
+           
+        }
+
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+           
+        }
+        
+        .timeline-item .law-tag:hover{
+            background-color: #a26f5a;
+            color:white;
+             transition:all 0.3s ease;
+             cursor: pointer;
+        }
+     
+        .left-content {
+            flex: 1;
+            text-align: right;
+            padding-right: 40px; 
+        }
+
+        .left-content h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .left-content p {
+            font-size: 1.4rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .law-tag {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #e0e0e0;
+            font-size: 1.2rem;
+            padding: 4px 12px;
+            border-radius: 15px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        
+        .timeline-axis {
+            position: relative;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-axis::before {
+            content: "";
+            position: absolute;
+            top: 10px; 
+            bottom: -40px; 
+            width: 1px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .timeline-item:last-child .timeline-axis::before {
+            display: none;
+        }
+
+     
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #2a9d8f;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            margin-top: 8px; 
+        }
+
+        .dot::after {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background-color: rgba(42, 157, 143, 0.2);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .year-side {
+            width: 100px; 
+            padding-left: 20px;
+            font-size: 1.3rem;
+            color: #888;
+            padding-top: 6px; 
+        }
+        .main-content{
+            display: flex;
+            gap:100px;
+            align-items: center;
+        }
+        .right-image {
+            width: 450px;
+            height: 450px; 
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .sub-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+      
+        .sub-image-2 {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 320px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+   
+        .sub-image-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            z-index: 1; 
+            border: 5px solid white; 
+            transition: transform 0.3s ease;
+        }
+
+       
+        .right-image:hover .sub-image-1 {
+            transform: translate(-10px, 10px);
+        }
+        .right-image:hover .sub-image-2 {
+            transform: translate(10px, -10px);
+        }
