@@ -95,3 +95,126 @@ body{
 - decimal-leading-zero
 - lower-alpha
 - upper-alpha
+### transition
+- transition property: none| all | ten-thuoc-tinh
+- transition-duration: value + unit(s,ms)
+- transition-delay:
+- transition-timing-function:quy dinh toc do qua moi giai doan chuyen dong
+- ease --> chậm - nhanh -chậm
+- linear --> tốc độ đều
+- ease-in: chậm - nhanh
+- ease-out: nhanh - chậm
+- ease-in-out
+- cubic-bezier(p1,p2,p3,p4)
+- Lưu ý: thuộc tính transition chỉ tác dụng với các thuộc tính có giá trị là số
+### transform
+- thuộc tính transform; biến đổi hình dạng html 
+- xoay
+- phóng to / thu nhỏ
+- nghiêng
+- di chuyển
+- Cú pháp : transform: value;
+- rotate(angle) --> xoay 2D theo trục Z
+- rotateX(angle) --> xoay theo trục X
+- rotateY(angle) --> xoay theo trục Y
+- scales(x,y) --> phóng to/thu nhỏ theo tỷ lệ x y
+- scaleX(value) --> phóng to theo trục x
+- scaleY(value) --> phóng to theo trục Y
+- skew(x,y) --> nghiêng theo góc x,y
+- skewY(value) --> nghiêng theo trục y
+- skewX(value) --> nghiêng theo trục X
+- translate(x,y) --> di chuyển theo x ,y
+- translateX --> di chuyển theo chục x
+- translateY --> di chuyển theo trục Y
+**Lưu ý**: Nếu đơn vị là % --> tỷ lệ với kích thước của chính nó
+- Các thuộc tính bổ sung:
+- rotate --> tương tự transform:rotate()
+- scale --> tương tự transform:scale()
+- translate --> tương tự transform:translate()
+- thuộc tính transform -origin: x y --> xác định vị trí của trục (mặc định là 50% 50%)
+# Responsive
+## Làm thế nào để thiết kế web tương thích với các thiết bị ?
+- Adaptive: tạo ra 1 giao diện khác sử dụng chung dữ liệu với desktop
+==> Dựa vào thiết bị để chuyển giao diện 
+- Responsive: sử dungjc css để ẩn/hiện các thành phần ở các kích thước màn hình khác nhau.
+==> Dựa vào kích thước màn hình để thay đổi giao diện
+- Responsive web design (RWD)
+- Thiết kế web đáp ứng 
+- Sử dụng kích thước màn hình để thay đổi giao diện
+## Breakpoint
+- Điểm kích thước màn hình (chiều rộng) mà tại đó giao diện sẽ thay đổi
+- Không có breakpoint cố định/ chuẩn cho các dự án
+- Chỉ có breakpoint phổ biến
+- Mẹo tìm ra các breakpoint phổ biến: Tham khảo các css framework 
+**Các breakpoint phổ biến**:
+- 576px
+- 768px
+- 992px
+- 1200px
+- 1400px
+### Media queries
+- At-rule CSS
+``` css
+@media allscreenprint and (min-width:width) and (max-width:width){
+   selector css
+}
+```
+- Cách 1 : Desktop first
+``` css
+@media screen and (max-width:1399px){
+   selector css
+}
+@media screen and (max-width:1199px){
+   selector css
+}
+@media screen and (max-width:991px){
+   selector css
+}
+@media screen and (max-width:767px){
+   selector css
+}
+@media screen and (max-width:575px){
+   selector css
+}
+```
+### Cách 2: Mobile first
+``` css
+@media screen and (min-width:576px){
+   selector css
+}
+@media screen and (min-width:768px){
+   selector css
+}
+@media screen and (min-width:992px){
+   selector css
+}
+@media screen and (min-width:1400px){
+   selector css
+}
+```
+- Đổ bóng khối
+- box shadow :h-offset v-offset blur spread color
+``` css
+.box{
+   width:200px;
+   height:200px;
+   background:green;
+   margin:30px auto;
+   
+}
+```
+- Animation:
+- Thuộc tính tạo hiệu ứng cho trang web
+- Sử dung @keyframes để định nghĩa hiệu ứng (tạo dựng một kịch bản)
+``` css
+@keyframes color{
+   from{
+      /* tương đương với 0% */
+      background-color:red;
+   }
+   to{
+      /* tương đương với 100% */
+      background-color:blue;
+   }
+}
+```

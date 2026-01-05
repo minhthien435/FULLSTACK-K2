@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      outline: 0;
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    .root {
+      --container-width: 1200px;
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+    .row{
+     
+      display: flex;
+      flex-wrap:wrap;
+    }
+    .col-1{
+       /* number=1
+      cell-number =12
+      width= (1/cell-number*100)*number
+       */
+      
+     
+    }
+    .col-2{
+      flex-basis:calc(1 / 12 * 100 * 1);
+      max-width: calc(1 / 12 * 100 * 1);
+
+    }
+    [class^="col-"]{
+      flex-basis:calc(1 / 12 * 100 * var(column-number));
+      max-width:calc(1 / 12 * 100 * var(column-number));
+    }
+
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <h2>Học lập trình không khó</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid illo, voluptatum voluptates eveniet sunt
+        nesciunt iusto mollitia asperiores in dicta perferendis blanditiis reiciendis facere exercitationem. Enim beatae
+        perspiciatis debitis! Consectetur molestiae voluptatum provident veritatis fugiat quae, tempora quas dolorum,
+        reprehenderit quis tempore. Placeat minima veniam molestiae quibusdam neque iste vitae accusamus. Nam expedita,
+        enim tenetur iure exercitationem necessitatibus nobis nulla nesciunt quidem fuga reprehenderit voluptas quod,
+        laudantium ut. Saepe quod natus quas qui, excepturi quae facilis sint et facere rerum debitis sequi odio,
+        necessitatibus commodi impedit in numquam hic ad neque soluta. Corporis magni, ipsam commodi nam consequuntur
+        modi suscipit.</p>
+        <div class="row">
+          <div class="col-1">Col 1</div>
+          <div class="col-1">Col 2</div>
+          <div class="col-1">Col 3</div>
+          <div class="col-1">Col 4</div>
+          <div class="col-1">Col 5</div>
+          <div class="col-1">Col 6</div>
+          <div class="col-1">Col 7</div>
+          <div class="col-1">Col 8</div>
+          <div class="col-1">Col 9</div>
+          <div class="col-1">Col 10</div>
+          <div class="col-1">Col 11</div>
+          <div class="col-1">Col 12</div>
+        </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:400px;
+            height:400px;
+            position:relative;
+            /* background:green; */
+            margin: 30px auto;
+            border:1px solid red;
+            /* box-shadow : 10px 10px red ;
+            animation-name:color;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
+            animation-delay:1s; */
+            /* box shadow: h-offset v-offset blur spread color */
+            
+        }
+        @keyframes color{
+            0%{
+                background:red;
+            }
+            50%{
+                scale:1.5;
+            }
+           75%{
+                rotate:180deg;
+            }
+            100%{
+                background:blue;
+            }
+        }
+        .box span{
+            display: block;
+            width:100px;
+            height:100px;
+            background:green;
+            top:0;
+            left:0;
+            position:absolute;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
+            animation-timing-function: linear;
+            animation-name:move;
+            animation-delay:2s;
+        }
+        @keyframes run{
+            0%{
+                transform:translate(0,0);
+            }
+            25%{
+                transform:translate(350px,0);
+            }
+            50%{
+                transform:translate(350px,350px);
+            }
+            75%{
+                transform:translate(0,350px);
+            }
+            100%{
+                transform:translate(0,0);
+            }
+        }
+        @keyframes move{
+            25%{
+                top:0;
+                left: 100%;
+                translate:-100% 0;
+            }
+            50%{
+                top:100%;
+                left: 100%;
+                translate:-100% -100%;
+            }
+            75%{
+                left:0;
+                top:100%;
+                translate:0 -100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+    </div>
+</body>
+</html>

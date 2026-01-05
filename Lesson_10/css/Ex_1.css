@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Roboto',sans-serif;
+}
+body{
+    background-color:#03A9F4;
+    overflow:hidden;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+.content{
+    text-align: center;
+    z-index: 1;
+    transition:opacity 0.3s;
+}
+.content h1{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+.content p{
+    font: size 1.2rem;
+    font-weight:300;
+    opacity:0.8;
+}
+#toggle{
+    display: none;
+}
+.button-container{
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:60px;
+    height:60px;
+    z-index:999;
+    cursor:pointer;
+    border-radius:50%;
+}
+.button-container span{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:30px;
+    height:4px;
+    background-color:white;
+    border-radius:2px;
+    transition: all 0.3s ease-in-out;
+}
+.button-container span:nth-child(1){
+    top:35%;
+}
+.button-container span:nth-child(3){
+    top:65%;
+}
+#toggle:checked + .button-container span:nth-child(1){
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-45deg);
+    width:15px;
+    left:35%;
+    background-color:#03A9F4;
+}
+#toggle:checked + .button-container span:nth-child(2){
+    background-color:#03A9F4;
+}
+#toggle:checked + .button-container span:nth-child(3){
+    top:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width:15px;
+    left:35%;
+    background-color:#03A9F4;
+}
+/* circle background around the toggle */
+.menu-background{
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:60px;
+    height:60px;
+    background-color:white;
+    border-radius:50%;
+    z-index:99;
+    transform:scale(0);
+    transition:transform 0.6s cubic-bezier(0.755,0.05,0.855,0.06);
+}
+#toggle:checked ~ .menu-background{
+    transform:scale(100);
+}
+.nav-menu{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:100;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    padding-left:100px;
+    opacity:0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+}
+#toggle:checked ~ .nav-menu{
+    opacity:1;
+    visibility: visible;
+    transition:all 0.4s ease 0.3s;
+}
+.nav-menu a{
+    text-decoration:none;
+    color:#03A9F4;
+    font-size:2.5rem;
+    font-weight:500;
+    margin:10px 0;
+    display: block;
+    transform:translateX(-20px);
+    opacity:0;
+    transition:transform 0.3s, opacity 0.3s;
+}
+.nav-menu a:hover{
+    color:#0277bd;
+}
+#toggle:checked ~ .nav-menu a{
+    transform:translateX(0);
+    opacity:1;
+}
+#toggle:checked ~ .nav-menu a:nth-child(1){
+    transition-delay:0.3s;
+}
+#toggle:checked ~ .nav-menu a:nth-child(2){
+    transition-delay:0.4s;
+}
+#toggle:checked ~ .nav-menu a:nth-child(3){
+    transition-delay:0.5s;
+}
+#toggle:checked ~ .nav-menu a:nth-child(4){
+    transition-delay:0.6s;
+}
+#toggle:checked ~ content{
+    opacity:0;
+    transform:translateX(50px);
+}
