@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data =[];
+        // khoi tao mot mang doi tuong nguoi dung
+        function createUser(name,password,email){
+            return{
+                name:name,
+                password:password,
+                email:email,
+                role:"user"
+            };
+        }
+        function handleRegister(name,password,email){
+            if(!name || !email || !password){
+                console.error("Vui long nhap day du thong tin!");
+                return;
+                // dung chuong trinh
+            }
+               // tao doi tuong moi va day vao mang data
+            const newUser = createUser(name,password,email);
+            data.push(newUser);
+            return data;
+        }
+     
+        //tra ve mang chua tat ca nguoi dung hien tai
+        function handleLogin(email,password){
+            // tim kiem nguoi dung trong mang data co email va password khop
+            const user = data.find(function(userItem){
+                return userItem.email===email && userItem.password===password;
+            });
+            if(user){
+                return user;
+            }else{
+                return "Thong tin dang nhap khong hop le";
+            }
+        }
+        handleRegister("Thien Minh","123456","minh@gmail.com");
+        handleRegister("Trung Quan","2344221","quan@gmail.com");
+        console.log("Du lieu sau khi dang ky: ",data);
+        const dataLogin = handleLogin("minh@gmail.com","123456");
+        console.log("Ket qua dang nhap: ",dataLogin);
+
+        // phuong thuc filter2()
+        // * Muc tieu: Loc mang,giu lai cac phan tu thoa man dieu kien
+        Array.prototype.filter2 = function(callback,thisArg){
+            const result=[];
+            const length = this.length;// luu length de khong bi doi neu callback lam thay doi mang goc
+            for(let i =0;i<length;i++){
+                //hasOwnProperty giup loai bo cac phan tu trong 
+                if(this.hasOwnProperty(i)){
+                    const isPassed=callback.call(thisArg,this[i],i,this);
+                    if(isPassed){
+                        result.push(this[i]);
+                    }
+                } 
+            }
+            return result;
+        }
+        const arr=[1,2,3,4,5];
+        const result=arr.filter2(function(value){
+            return value%2!==0;
+        });
+        console.log(result);
+        /*
+        * Phuong thuc map2()
+        * Muc tieu :Tao mot mang moi bang cach bien doi phan tu
+        * Luu y:Giu nguyen cac vi tri trong(empty) trong mang moi
+        * 
+        */
+       Array.prototype.map2=function(callback,thisArg){
+        const length=this.length;
+        const result=new Array(length);
+        for(let i =0;i<length;i++){
+            if(this.hasOwnProperty(i)){
+                result[i]=callback.call(thisArg,this[i],i,this);
+
+            }
+        }
+        return result;
+
+       }
+       const arr2=[1,,,,5];
+       const result2=arr2.map2(function(value){
+        return value*2;
+        
+       });
+       console.log(result2);
+        console.log(result2.length);
+
+        //reduce2
+        Array.prototype.reduce2=function(callback,initialValue){
+            const length=this.length;
+            let accumulator=initialValue;
+            let startIndex=0;
+            // KT xem nguoi dung co truyen initialValue hay khong
+            if(arguments.length<2){
+                let foundFirst=false;
+                for(let i =0;i<length;i++){
+                    if(this.hasOwnProperty(i)){
+                        accumulator=this[i];
+                        startIndex=i+1; // bat dau tich luy phan tu tiep theo
+                        foundFirst=true;
+                        break;
+                    }
+                }
+                if(!foundFirst){
+                    throw new TypeError("Reduce of empty array with no intital value");
+                }
+             }
+            for(let i =startIndex;i<length;i++){
+                if(this.hasOwnProperty(i)){
+                    accumulator=callback(accumulator,this[i],i,this);
+                    
+                }
+            }
+            return accumulator;
+        };
+        // Sample 1
+
+const arr1 = [1, 2, 3, 4, 5];
+
+const result1 = arr1.reduce2((accumulator, value) => {
+    return accumulator + value;
+}, 0);
+
+console.log(result1); // 15
+
+// Sample 2
+
+const arr4 = [];
+
+const result4 = arr4.reduce2((accumulator, value) => {
+    return accumulator + value;
+});
+
+console.log(result4); // Error: Reduce of empty array with no initial value
+
+// Sample 3
+
+const arr5 = [];
+
+const result5 = arr5.reduce2((accumulator, value) => {
+    return accumulator + value;
+}, 0);
+
+console.log(result5); // 0
+
+const nested = [[1, 2], [3, 4], [5, 6]];
+var flat=nested.reduce(function(acc,curr){
+    return acc.push(...curr);
+},[]);
+console.log(flat);
+    
+    </script>
+</body>
+</html>

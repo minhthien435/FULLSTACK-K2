@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // prototype :Object dùng để kế thừa các phương thức và thuộc tính
+        //  Object.prototype.combineValue = function(){
+                // Nối tất cả các giá trị của các key thành 1 mảng
+                // this: đại diện cho object hiện tại
+    //            var array=[];
+    //            var _this=this;
+    //            Object.keys(this).forEach(function(key){
+    //             var value=_this[key];
+    //             if(typeof value !=='function'){
+    //                 array.push(value);
+    //             }
+    //            });
+    //           return array;
+    //         };
+
+    //     var user={
+    //         name:"Thien Minh",
+    //         email:"minh@gmail.com",
+           
+    //     };
+    //     console.log(user);
+    //     console.log(user.combineValue);
+         
+    //     var course={
+    //         name:"FullStack",
+    //         price:1000,
+    //     };
+    //     console.log(course);
+    //     Object.prototype.message="Hoc Js khong kho";
+    //     console.log(user.message);
+
+    //     String.prototype.last=function(){
+    //         return this.split(" ").slice(-1).join();
+    //     };
+        
+    //    var fullName="Minh F8";
+    //    console.log(fullName.last());
+    //    console.log(fullName.message);
+    //    var arr=[];
+    //    console.log(arr.message);
+    //    String.prototype.last = function(){
+    //     return this.split(" ").slice(-1).join();
+    //    }
+
+    
+
+    //    var users =['User 1','User 2','User 3','User 4'];
+    //    Array.prototype.map2=function(callback){
+    //     if(typeof callback!== "function"){
+    //         return;
+    //     }
+    //     var newArr=[];
+    //     for(var i =0;i<this.length;i++){
+    //         var value=this[i];
+    //         var result=callback(value,i);
+    //         newArr(newArr.length)=result;
+    //     }
+    //     return newArr;
+    //     // co tac dung giong map
+    //     // yeu cau: khong duoc dung cac phuong thuc xu ly mang co san (tru length)
+
+
+    //    }
+    //    var newArr = user.map(function(user,index){
+    //     return `<h3>${index + 1} -  ${user}</h3>`;
+    //    });
+    //    console.log(newArr);
+    //    console.dir(Function);
+    //    console.log(getMessage.message);
+       
+    //    var person1 ={
+    //     name:'Hoang An',
+    //     email: 'hoangan@gmail.com',
+    //     age:32,
+    //     getInfo:function(){
+    //         return{
+    //             name:this.name,
+    //             email:this.email,
+    //             age:this.age,
+    //         };
+    //     },
+    //    };
+    //    console.log(person1);
+    //    console.log(person1.getInfo);
+       // Cau truc cua Object?
+       // Co nhung thuoc tinh nao?
+       // Co nhung phuong thuc nao?
+       // giai phap: Tao 1 function constructor --> Dinh nghia  cau truc cua object  
+       // Nguyên tắc của function constructor
+       // Tên hàm phải là danh từ
+       // Đặt tên theo quy tắt PascalCase(Ký tự đầu của mỗi từ sẽ viết hoa)
+       // Ví dụ: UserService,UserCourse,ResetPasswordService,...
+    //    function Person(name,email,age){
+    //     // Thuộc tính 
+    //     this.name=name;
+    //     this.email=email;
+    //     this.age=age;
+    //     //phương thức
+    //     this.getInfo = function(){
+    //         return {
+    //             name:this.name,
+    //             email:this.email,
+    //             age:this.age,
+    //         };
+    //     };
+    //    }
+    //    Person.prototype.message="Hoc JS";
+    //    // tạo object từ constructor
+    //    var person1 = new Person("Thien Minh","minh@gmail.com",23);
+    //    console.log(person1);
+    //    var person2 = new Person("Thien Minh 2","er@gmail.com",34);
+    //    console.log(person2);
+    //    console.log(person2.message);
+    //     var person1 = new Person("Thien Minh 1","minh@gmail.com",22);
+    //     console.log(person1);
+    //     console.log(person1.constructor.name);
+    //     var users = ["User 1","User 2","User 3"];
+    //     if(users&&users.constructor.name === "Array"){
+    //         console.log("Day la mang");
+    //     }
+        //thuộc tính tỉnh ,phương thức tỉnh
+        // không phụ thuộc vào object mà nó sẽ truy cập trực tiếp từ hàm constructor
+        // VD: Array.isArray(), Object.keys(),Object.values()....
+        //static method
+        // Perons.message="Hello anh em F8" //static property
+
+        // //static method
+        // Person.message=function(){
+        //     return "Hoc JS khong kho";
+        // };
+        // var person1 = new Person("Hoang An 1","minhthien1@gmail.com",32);
+        // console.log(person1.message);
+        // Person.something=function(){
+        // console.log(person1.constructor.message);
+        // }
+        // Person.something=function(){
+        //     console.log("something");
+        //     console.log(new this().a);
+        // };
+        // Person.something();
+        // this trong phương thức tĩnh là constructor
+        // this trong phương thức thông thường là object
+        var userS ={
+            name:"Thien Minh",
+            email:"minh@gmail.com",
+            getInfo:function(){
+                var _this=this;
+                return{
+                    age:32,
+                    getName:function(){
+                        return _this.name;
+                    },
+                };
+            },
+        };
+        console.log(userS.getInfo().getName());
+        userS.getInfo.bind("a")();
+        function something(name,email){
+            console.log(this.courseName);
+            console.log(this.coursePrice);
+        }
+        something("Minh","minh@gmail.com");
+        var obj ={
+            courseName: "FullStack",
+            coursePrice: 12000,
+        };
+        something("Hoang An","hoangan@gmail.com");
+        something.call(obj,"Hoang An","hoangan@gmail.com");
+        var arr =["Hoang An","hoangan@gmail.com"];
+        something.apply(obj,arr);
+        // No se giai cac mang ra thanh cac tham so
+        something.call(obj,...arr);// spread
+        function  Person(){
+            this.name="Hoang An";
+            this.email="hoangan@gmail.com";
+            this.getName=function(){
+                return this.name;
+            };
+            this.email=function(){
+                return this.email;
+            };
+        
+        }
+            function User(){
+                Person.call(this);
+                this.getInfo=function(){
+                    console.log(this.getName());
+                    console.log(this.getEmail());
+                };
+            }
+            var user = new User();
+            user.getInfo();
+            console.log(user.name);
+            //func1 => func2 => func3
+
+            // 1.Prototype
+            //2. This
+            //3. Function constructor
+            //4. bind,call,apply
+            //5. Ke thua constructor
+            
+    </script>
+</body>
+</html>

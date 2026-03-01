@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function display(){
+            console.log("Display");
+            var x = 10;
+            function something(){
+            console.log("someThing");
+            console.log(x);
+            }
+            someThing();
+        }
+        // Closure - hàm bao đóng:Định nghĩa hàm trong một phạm vi khác và có thể sử dụng các thuộc tính bên ngoài phạm vi.
+        // Có thể truy cập ở phạm vi chứa nó
+        // Trong JS tất cả các hàm đều là closure.
+        
+        display();
+        function getMessage(){
+            console.log("getMessage");
+        }
+         window.console.log(window);
+         window.getMessage();
+         window.console.log(window.a);
+         window.f8 = {
+            showMessage(){
+                console.log("Học lập trình không khó");
+            },
+         };
+         function display(){
+          return  function getMessage(){
+                return "Học lập trình không khó";
+            }
+            
+         }
+         
+         console.log(display());
+
+         function sum(a){
+            return function(b){
+                return a +b;
+            }
+         }
+         var add = sum(10);
+         var result = add(20);
+         console.log(result);
+        // Giải thuật đệ quy
+        // function showNumber(n){
+        //     console.log(n);
+        //     if(n>1){
+        //         showNumber(n+1);
+        //     }
+        // }
+        // showNumber(10);
+        // tinhs tổng :1+2+3+4+...+N
+        function getTotal(n){
+            if(n===1){
+                return 1;
+            }
+            return n + getTotal(n-1);
+}
+        var total = getTotal(10);
+        console.log(total);
+        function fibonacci(n){
+            if(n===1 || n===2){
+                return 1;
+            }
+            return fibonacci(n-1)+fibonacci(n-2);
+        }
+        console.log(fibonacci(5));
+
+        
+    </script>
+</body>
+</html>

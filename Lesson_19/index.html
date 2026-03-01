@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Cho trước 1 mảng số nguyên,yêu cầu tìm số lớn nhất,nhỏ nhất trong mảng vị trí
+        let myArr = [6,3,7,8,2,1];
+        let maxValue = myArr[0];
+        let maxIndex = 0;
+        let minValue = myArr[0];
+        let minIndex = 0;
+        for(let  index in myArr){
+            let i = parseInt(index);
+            let currentVal = myArr[i];
+            if(currentVal>maxValue){
+                maxValue=currentVal;
+                maxIndex=i;
+            }
+            if(currentVal<minValue){
+                minValue = currentVal;
+                minIndex=i;
+            }
+        }
+        console.log(`Số lớn nhất là ${maxValue} tại vị trí ${maxIndex}`);
+        console.log(`Số nhỏ nhất là ${minValue} tại vị trí ${minIndex}`);
+        
+        // 2. Cho trước 1 mảng số nguyên tính trung bình các số nguyên tố có trong mảng.Nếu trong mảng không có số nguyên thì hiển thị "Không có số nguyên tố"
+        function isPrime(n){
+            if(n<2)return false;
+            for(let i =2;i<=Math.sqrt(n);i++){
+                if(n%i==0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        let myIntArr=[1,2,3,4,5,6,7,8];
+        let sumPrime = 0;
+        let countTotalPrime =0;
+        for(let value of myIntArr){
+            if(isPrime(value)){
+                sumPrime+=value;
+                countTotalPrime++;
+            }
+        }
+        if(countTotalPrime===0){
+            console.log("Không có số nguyên tố");
+        }else{
+            let avgTotalPrime = sumPrime/countTotalPrime;
+            console.log(`Số lượng số nguyên tố: ${countTotalPrime}`);
+            console.log(`Tổng các số nguyên tố: ${sumPrime}`);
+            console.log(`Trung bình tổng các số nguyên tố: ${avgTotalPrime}`);
+        }
+        //3. Cho trước 1 mảng bất kỳ, nếu trong mảng có các phần tử trùng nhau thì chỉ giữ lại 1.gọi là lọc trùng
+        let mynewArr = [2,3,1,2,4,5,2,8,9];
+        let mangMoi = [];
+        for(let i =0;i<mynewArr.length;i++){
+            // lấy phân tử hiện tại ra
+            let currentValue = mynewArr[i];
+            //kiểm tra xem số này đã nằm trong mảng mới hay chưa
+            // dùng includes()
+            if(mangMoi.includes(currentValue) === false){
+                mangMoi.push(currentValue);
+            }
+        }
+        console.log(mangMoi);
+        //4 sắp xếp một mảng theo thứ tự tăng dần
+         let sortArr= [9,8,7,6,4,2,3];
+         for(let i =0;i<sortArr.length-1;i++){
+            for(let j = i+1;j<sortArr.length;j++){
+                if(sortArr[i]>sortArr[j]){
+                    let temp = sortArr[i];
+                    sortArr[i]=sortArr[j];
+                    sortArr[j]=temp;
+                }
+            }
+         }
+         console.log(sortArr);
+         // chèn một giá trị vào một vị trí bất kỳ mà ko làm thay đôi thứ tự sắp xếp của mảng
+         var numbers = [5,1,9,8,10];
+         var element =4;
+         numbers.sort(function(a,b){ 
+            return a-b;
+         });
+         console.log("Numbers: ",numbers);
+         // chèn số 4 vào đúng vị trí
+         // tìm vị trí đầu tiên mà số tại đó lớn hơn số cần chèn (số 4)
+         var index = numbers.findIndex(function(n){
+            return n>element;
+         });
+         // nếu không tìm thấy (index=-1) tức là số cần chèn lớn nhất -> thêm vào cuối 
+         // nếu tìm thấy thì dùng splice để chèn vào vị trí đó.
+
+         if(index=== -1){
+            numbers.push(element);
+         }else{
+            numbers.splice(index,0,element);
+         }
+         console.log("numbers =",numbers);
+         //
+
+
+         const fruits = ["Banana","Orange","Lemon","Apple","Mango"];
+         const citrus = fruits.slice(1,3);
+         console.log(citrus);
+
+         (function display(){
+            console.log("Hello");
+         })();
+         // IIFE automatically invoked without calling 
+         // intersection giao nhau.
+         var arr1 = [1,4,3,2];
+         var arr2 = [5,2,6,7,1];
+         var result=[];
+         for(var i = 0;i<arr1.length;i++){
+            for(var j =0;j<arr2.length;j++){
+                if(arr1[i]===arr2[j]){
+                    result.push(arr1[i]);
+                    break;
+                }
+               
+            }
+         }
+         console.log(result);
+         
+         // làm phẳng aray sau (chuyển về mảng 1 chiều),
+         // không đưỡ sử dụng flat()
+         let printOut =[];
+         let flattern = function(arr){
+            for(let i =0; i<arr.length;i++){
+                let value = arr[i];
+                if(Array.isArray(value)){
+                    flattern(value);
+                }else{
+                    printOut.push(value);
+                }
+            }
+            return printOut;
+         }
+         let arr = [0, 1, [2, 3], [4, 5, [6, 7]], [8, [9, 10, [11, 12]]]];
+         console.log(flattern(arr));
+
+         var mang = [["a", 1, true], ["b", 2, false]]
+         var strings=[];
+         var bools=[];
+         var numbers=[];
+         // vòng lặp i đi từng dòng
+         // vòng lặp j đi từng cột dựa vào độ dài cụ thể
+         for(let i =0;i<mang.length;i++){
+            for(let j =0 ;j<mang[i].length;j++){
+                let item = mang[i][j];
+                if(typeof item ==='string'){
+                    strings.push(item);
+                }else if(typeof item ==='number'){
+                    numbers.push(item);
+                }else if(typeof item === 'boolean'){
+                    bools.push(item);
+                }
+            }
+         }
+         var result = [strings,numbers,bools];
+         console.log(result);
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // object : Đặc tả về 1 đối tượng cụ thể
+        // Ví dụ: con người,người dùng,sản phẩm.
+        /*
+        Cấu tạo bởi
+        - Thuộc tính (biến)
+        - Phương thức (Hàm)
+        -
+        Cú pháp:
+        var tenObject={
+        key1:value1,
+        key2:value2,
+        ...
+        }
+        */
+       //===> object literal (object nguyen ban)
+       var user={
+        name:"Thien Minh",
+        email:"minh@gmail.com",
+        age:25,
+        "address-a":"Ha Noi",
+       };
+       console.log(user);
+       console.log(user.name);
+       console.log(user.email);
+       console.log(user["age"]);
+       console.log(user["address-a"]);
+       user.address="Ha Noi"; // them moi
+       user.name="Minh dep trai" // sua
+       console.log(user);
+       for(var key in user){
+        console.log(user[key]);
+       }
+       // ham tao cua object la Object
+       console.dir(Object);
+       // noi 2 object
+       var obj1={
+        age:32,
+        role:"teacher",
+
+       };
+       var obj3={};
+       // kiem tra 1 bien xem co phai la mang hay khong
+       var a ={}
+       if(typeof a ==="object" && !Array.isArray(a) && a!==null){
+        console.log("La object");
+       }
+       if(a && a.constructor.name === "object"){
+        console.log("La object");
+
+       }
+       var obj ={
+        name:"Hoang An",
+        email:"minh@gmail.com",
+        age:32,
+       };
+       var keys=Object.keys(obj);
+       console.log(keys);
+       Object.keys(obj).forEach(function (key){
+        console.log(obj[key]);
+       });
+       var user ={};
+       // kiem tra object user co phan tu hay khong
+       if(Object.keys(user).length){
+        console.log("Co phan tu");
+       }else{
+        console.log("Khong co phan tu")
+       }
+       // object.values() ==> no se tra ve 1 mang chua cac value cua object
+       console.log(Object.values(obj));
+       // object.entries() ===> tra ve 1 mang 2 chieu chua ca key va value
+       console.log(Object.entries(obj));
+       //object.fromEntries() ==> chuyen tu array entries (mang 2 chieu ) thanh object
+       var arr = [
+        [ 'key1', 'value1'],
+        [ 'key2', 'value2'],
+        [ 'key3', 'value3'],
+       ];
+       var object = Object.fromEntries(arr);
+       console.log(object);
+       // object.assign(target,source) ===> copy
+       //object source va noi vao object target,dong cung tra ve object moi chinh object sau khi noi
+       var obj1 = {
+        name:'Minh',
+        email:'minh@gmail.com',
+       };
+       var obj2={
+        role:'teacher',
+        address:'Ha noi',
+       };
+      var obj3= Object.assign(obj1,obj2);
+       console.log(obj1);
+       console.log(obj3);
+       // noi obj1 va obj2 luu vao obj3 (khong lam thay doi obj1,obj2);
+       var obj3 = Object.assign({},obj1,obj2);
+       console.log(obj1);
+       console.log(obj2);
+       console.log(obj3);
+
+       var query ={
+        category:1,
+        keyword: "Khoa hoc fullstack",
+        status:true,
+       };
+       // chuyen thanh string category=1&keyword=khoa+hoc+Fullstack&status=true
+       var queryString =Object.entries(query).map(function(item){
+        return item.join('=');
+
+       })
+       .join('&').replaceAll(" ","+");
+       console.log(queryString);
+       
+       // bt1
+       const customers = [
+	{ name: "Nguyễn Văn A", age: 30, address: "Ha Noi" },
+	{ name: "Nguyễn Văn B", age: 2, address: "Hai Phong" },
+	{ name: "Nguyễn Văn C", age: 4, address: "Quang Ninh" },
+	{ name: "Nguyễn Văn D", age: 12, address: "TP.HCM" },
+	{ name: "Nguyễn Văn E", age: 6, address: "Bac Giang" },
+];
+       const result = createCustomers(customers);
+       console.log(result);
+       function createCustomers(customers){
+        for(let i =0;i<customers.length-1;i++){
+            for(let j =0;j<customers.length-i-1;j++){
+                console.log("i: ",i);
+                console.log(`customers_${i}: `,customers[i]);
+                if(customers[j].age> customers[j+1].age){
+                    let temp=customers[j];
+                    customers[j]=customers[j+1];
+                    customers[j+1]=temp;
+                }
+            }
+        }
+        return customers;
+       }
+        // bt2
+        const userList=[];
+        function createUserObject(name,password,email){
+            return{
+                name:name,
+                password:password,
+                email:email,
+                role:"user"
+            };
+        }
+        // main function 
+        // function register(name,password,email){
+        //     if(!name || !password|| !email){
+        //         console.error("Nhap thieu thong tin");
+        //         return;
+        //     }
+        //     const newUser = createUserObject(name,password,email);
+        //     userList.push(newUser);
+        //     return userList;
+        // }
+        // console.log("====Register 1=====");
+        // console.log(register("Thien Minh","12345465","minh@gmail.com"));
+        // console.log("====Register error(missing email)====");
+        // register("Nguyen Minh","2345","");
+        // console.log("\n--- Đăng ký người 2 ---");
+        // const finalResult = register("Nguyen Van C", "789101", "c@gmail.com");
+        // console.log(finalResult);
+        // bt3
+        
+
+        
+        const users=[];
+        function register(name,password,email){
+            if(!name || !password || !email){
+                console.log("Vui long nhap day du ho ten,password,email");
+                return;
+            }
+            users.push({name,password,email,role:"user"});
+            return users;
+        }
+        function login(email,password){
+            for(let i =0;i<users.length;i++){
+                if(users[i].email===email && users[i].password===password){
+                    return users[i];
+                }
+            }
+            return "Thong tin nguoi dung khong hop le"
+        }
+console.log("--- Đăng ký ---");
+register("Nguyen Van A", "123456", "nguyenvana@email.com");
+register("Nguyen Van B", "1234567", "nguyenvanb@email.com");
+
+// 2. Đăng nhập đúng (của ông B)
+console.log("\n--- Đăng nhập thành công ---");
+const dataLoginSuccess = login("nguyenvanb@email.com", "1234567");
+console.log(dataLoginSuccess);
+
+// 3. Đăng nhập sai (Sai password)
+console.log("\n--- Đăng nhập thất bại ---");
+const dataLoginFail = login("nguyenvanb@email.com", "999999");
+console.log(dataLoginFail);
+    </script>
+</body>
+</html>

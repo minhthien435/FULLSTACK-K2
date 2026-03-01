@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .post-item {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+        font-size:1.4rem;
+    }
+
+    .post-item.reverse {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    .post-item img {
+        width: 40%;
+        height: auto;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <div id="post-container">
+        
+    </div>
+    <script>
+        var posts = [
+            {
+                image: "https://picsum.photos/200/200",
+                title: "Tiêu đề bài viết 1",
+                content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi numquam qui amet odit commodi hic iste nisi facilis dolorem blanditiis repellat ipsum placeat, asperiores, dicta illo, aut laboriosam sapiente dignissimos voluptatem! Ratione perferendis culpa et, consequuntur veritatis autem iusto excepturi labore corrupti, ncidunt, quod officia nobis perspiciatis architecto asperiores numquam."
+            },
+            {
+                image: "https://picsum.photos/200/200",
+                title: "Tiêu đề bài viết 2",
+                content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi numquam qui amet odit commodi hic iste nisi facilis dolorem blanditiis repellat ipsum placeat, asperiores, dicta illo, aut laboriosam sapiente dignissimos voluptatem! Ratione perferendis culpa et, consequuntur veritatis autem iusto excepturi labore corrupti, ncidunt, quod officia nobis perspiciatis architecto asperiores numquam."
+            },
+            {
+                image: "https://picsum.photos/200/200",
+                title: "Tiêu đề bài viết 3",
+                content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi numquam qui amet odit commodi hic iste nisi facilis dolorem blanditiis repellat ipsum placeat, asperiores, dicta illo, aut laboriosam sapiente dignissimos voluptatem! Ratione perferendis culpa et, consequuntur veritatis autem iusto excepturi labore corrupti, ncidunt, quod officia nobis perspiciatis architecto asperiores numquam."
+
+            }
+    
+        ];
+        function renderZigzag(){
+            var container = document.getElementById("post-container");
+            var htmlString ="";
+            for(var i =0;i<posts.length;i++){
+                var post = posts[i];
+                var reverseClass = (i%2!==0) ? "reverse" : "";
+                htmlString +=`
+                    <div class="post-item ${reverseClass}">
+                        <img src="${post.image}" alt="image">
+                        <div class = "post-content">
+                            <h2>${post.title}</h2>
+                            <p>${post.content}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            container.innerHTML =htmlString;
+        }
+        renderZigzag();
+    </script>
+</body>
+
+</html>

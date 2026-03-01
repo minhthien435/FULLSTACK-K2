@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title" id="title">Học lập trình không khó</h1>
+    <h2 id="title" class="title">Học JS không khó</h2>
+    <h2>Học JS không khó</h2>
+    <script>
+        console.log(document);
+        console.log(document.body);
+        console.log(document.head);
+        console.dir(document.title);
+        document.title="Hello anh em F8";
+        // tao Element Node --> truy vap vao the HTML de tra ve object
+        // var title = document.getElementById("title");
+        // console.dir(title);
+
+        // var titleList = document.getElementsByClassName("title");
+        // console.log(titleList);
+
+       var title = document.querySelector("#title");
+       console.log(title);
+       var titleList = document.querySelectorAll("#title");
+       console.log(titleList);
+       // Array from ep ve kieu mang 
+       Array.from(titleList).map(function(item){
+        console.log(item);
+       });
+    </script>
+</body>
+</html>

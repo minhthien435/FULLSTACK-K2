@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // || :Tìm giá trị truthy đầu tiên.Nếu không thấy thì sẽ lấy giá trị cuối cùng
+        // && : Tìm giá trị falsy đầu tiên.Nếu không thấy thì lấy cái cuối cùng.
+    
+    // Yêu cầu xác định giá trị của biến result.
+    // let a1 = 0 ||"Xin chào";
+    // console.log(a1);
+    // let a2 = "A1" || "A2";
+    // console.log(a2);
+    // let a3 = null || false || 123;
+    // console.log(a3);
+    // /*Dạng trên là truthy*/
+    // let b1 = 1 && "Tạm biệt";
+    // console.log(b1);
+    // let b2=0 && "Tạm biệt";
+    // console.log(b2);
+    // let b3 = "Hi" && 10 && null;
+    // console.log(b3);
+    // /*Kết hợp thứ tự ưu tiên: && cao hơn ||*/
+    // let c1 = 0 || 1 && 2;
+    // console.log(c1);
+
+    // Bài tập 1:
+    /*Tính chỉ số BMI */
+    // function tinhBMI(weight,height){
+    //     let BMI = weight/(height*height);
+    //     if(BMI<18.5){
+    //         return ("gầy");
+    //     }else if(18.5<=BMI && BMI<25){
+    //         return("Bình thường");
+    //     }else if(25<=BMI && BMI<30){
+    //        return("Thừa cân");
+    //     }else{
+    //        return("Béo phì");
+    //     }
+    // }
+    // console.log(tinhBMI(70,1.75));
+    // /*Nested loop*/
+    // let h =5;
+    // for(let i =1;i<=h;i++){
+    //     let row = "";
+    //     for(let j = 1;j<=i;j++){
+    //         row+="*";
+    //     }
+    //     console.log(row);
+    // }
+    // /*callback*/
+    // function myMap(arr,callback){
+    //     let ouput = [];
+    //     for(let i =0;i<arr.length;i++){
+    //         let newElement = callback(arr[i]);
+    //         output.push(newElement);
+    //     }
+    //     return output;
+    // }
+    // const numbers = [1,2,3];
+    // const result = myMap(numbers,function(num){
+    //     return num*2;
+    // });
+    // console.log(result);
+    // bt 1:
+    function fibo(n,a=0,b=1){
+        if(n<=0)return;
+        console.log(a);
+        fibo(n-1,b,a+b);
+    }
+    fibo(10);
+    // đảo ngược số (dùng chuỗi)
+    function reverse(n){
+        // 1. Biến n từ số thành chuỗi
+        // 2. Tách chuỗi thành mảng 
+        // 3. Đảo ngược mảng
+        // 4. Gộp mảng lại thành chuõi
+        // 5. Chuyển chuỗi về số nguyên và nhân với dấu của số gôc
+        var reverseNumber = parseFloat(n.toString().split('').reverse().join(''))*Math.sign(n);
+        return reverseNumber;
+    }
+    console.log(reverse(12345));
+    console.log(reverse(-987));
+    function convertNumber(n){
+        if(n===0)return "Khong";
+        var letter = ["không","Một","Hai","Ba","Bốn","Năm","Sáu","Bảy","Tám","Chín"];
+        var ngan = Math.floor(n/1000);
+        var tram = Mth.floor()
+    }
+    </script>
+
+</body>
+</html>

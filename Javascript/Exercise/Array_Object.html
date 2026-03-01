@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array,object,function: Khi gán 1 biến bằng 1 array,
+        //object ==> biến mới copy địa chỉ của biến cũ ==> 2 biến cùng một địa chỉ
+        // copy array
+        //Shallow copy
+        // Sử dụng các phương thức trả về mảng mới
+        //Deep copy
+
+        var oldArr = ["Hoang An","hoangan@gmail.com"];
+        var newArr = oldArr;  
+        newArr[0]="Hoang An f8";
+        // sử dụng phương thức để trả về mảng mới
+        var newArr=oldArr.map(function(item){
+            return item;
+        })
+        //Deep copy
+        newArr[0]="Hoang An F8";
+        console.log(newArr);
+        console.log(oldArr);
+        // sử dụng jSON : chuyển mảng thành json,chuyển ngược lại json và mảng
+        var json = JSON.stringify(oldArr);
+        var newArr = JSON.parse(json);
+        var users = ['Item 1','Item 2'];
+        function setData(data){
+            data=[];
+        }
+
+        setData();
+        var message="F8";
+        function setMessage(data){
+            data=data.replace("8","9");
+            console.log(data);
+        }
+        setMessage(message);
+        console.log(message);
+        // dich = nguon
+        // dich thay doi thi nguon cung thay doi
+        // --> kieu du lieu tham chieu
+        var a = function(){
+            console.log("getA");
+        }
+        var b=a;
+        var c=b;
+        c();
+        var arr= [
+            ["User 1","user1@gmail.com"],
+            ["User 2","user2@gmail.com"],
+            ["User 3","user3@gmail.com"],
+        ];
+        // them 1 phan tu vao mang con neu tim thay email bang =user2@gmail.com
+        var arr = arr.map(function(item){
+            if(item.includes("user2@gmail.com")){
+                item.push("Hello");
+            }
+            return item;
+        });
+        console.log(arr);
+        var result=[];
+        arr.forEach(function(item){
+            if(item.includes("user2@gmail.com")){
+                resutl=item;
+            }
+        });
+        var array=["Item 1","Item 2","Item 3","Item 4","Item 5"];
+        array.length=3;// getter-setter
+        console.log(array);
+        // tao mot mang co so luong phan tu xac dinh
+        var array1=Array(20);
+        // vi du: tao 1 mang moi chua cac so tu 1 den 20
+        //[1,2,3,4,5,6,7,...,20]
+        var newArr =Array.from( Array(20).keys().map(function(item,index){
+            return item+1;
+        })
+    );
+    console.log(newArr); 
+    // Array(number) tra ve mot mang co so luong phan tu number
+    // keys()--> tra ve cac index cua mang
+    console.log(Array(20).keys);
+    //3. Array.from --> ep kieu ve mang
+    console.log(Array.from(Array(20).keys()));
+    console.log(Array.from('a'));
+    console.log(Array.from({}));
+    function something(){
+        console.log(arguments);
+        // Array like object--> object giong mang co length,co key la
+        Array.from(arguments).forEach(function(item){
+            console.log(item);
+        });
+    }
+    something(5,10,15,20);
+    </script>
+</body>
+</html>

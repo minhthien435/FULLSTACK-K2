@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var number =15;
+        if(number<0){
+            console.log("Số siêu nhỏ");
+        }else if(number>=5 && number<10){
+            console.log("Số trung bình");
+        }else if(number>=10 && number<15){
+            console.log("Số lớn");
+        }else{
+            console.log("Số siêu lớn");
+        }
+// Tính lương nhận của 1 nhân viên sau khi đã trừ thuế
+// Quy ước 
+// Lương <=5 tr --> thuế 0%;
+// Lương >5tr --> thuế 3%;
+
+var salary = 7000000;
+var income ,tax;
+        if(salary<=500000){
+            tax=0;
+            income=salary;
+        }else if(salary>5000000 && salary<15000000){
+            tax=salary*0.03;
+            income=salary-tax;
+        }else{
+            tax=salary*0.05;
+            income=salary-tax;
+        }
+        console.log("Lương: ",salary);
+        console.log('Thuế: ',tax);
+        console.log("Thu nhập thực nhận: ",income);
+
+        var saleRate = 5;
+        var salePrice = 1000000;
+        var regularPrice = salePrice +(salePrice*saleRate)/100;
+        console.log(regularPrice);
+
+        var seconds = 350;
+        // Tìm xem có bao nhiêu phút,bao nhiêu giây;
+        var minutes = Math.floor((seconds/60));
+        seconds-=minutes*60;
+        console.log(minutes,seconds);
+        
+        var action = 'add';
+        switch(action){
+            case'add':
+            case 'create':
+            case 'insert':
+            console.log("Thêm");
+            break;
+            case 'update':
+                console.log("Cập nhật");
+                break;
+            case 'delete':
+                console.log("Xóa sản phẩm");
+            default:
+                console.log("Danh sách chưa được thêm");
+                break;
+        }
+        if(action==='add'|| action =='create' || action =='insert'){
+            console.log("Thêm:");
+        }
+        // Viết chương trình hiển thị số ngày trong 1 tháng cho trước
+        // input :
+        var month=11;
+        if(month% 1 ==0 && month >0 && month<13){
+            switch(month){
+                case 2:
+                    console.log("Tháng "+ month +"có 28 hoặc 29 ngày");
+                    break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                    console.log("Tháng "+month+" có 10 ngày");
+                    break;
+                    default:
+                        console.log("Tháng "+month+" có 31 ngày")
+                        break;
+            }
+        }
+        
+    </script>
+</body>
+</html>

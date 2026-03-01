@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //khai báo mảng
+        var myArr = [1, 5, 3, "F8",true,false,null,undefined];
+        console.log(myArr);
+        // Kiểm tra số lượng phần tử
+        console.log(myArr.length);
+        // kiểm tra 1 biến có phải là mảng không
+        if(Array.isArray(myArr)){
+            console.log("Đây là mảng");
+        }else{
+            console.log("Đây không phải là mảng");
+        }
+        //Thêm phần tử mới
+        // Cú pháp: tenbienmang[indexmoi]=giatri
+    //    myArr[myArr.length]="An";
+    //    myArr[myArr.length]="Minh";
+    //    //Sửa phần tử ==> xác định được index
+    //    myArr[3]="Hello F88";
+    //    console.log(myArr);
+    //    // duyệt mảng (đọc mảng)
+    //    console.log(myArr[0]);
+    //    for(var i =0;i<myArr.length;i++){
+    //     console.log(myArr[i]);
+    //     // vòng lặp for in
+    //     for(var index in myArr){
+    //         console.log(index,myArr[index]);
+    //     }
+    //    }
+    //    for(var value of myArr){
+    //     console.log(value);
+    //    }
+       // Xóa phần tử tỏng mảng ==> Xác định index
+       var deleteIndex = 3;
+       var newArr=[];
+       for(var index in myArr){
+        if(+index ===+deleteIndex){
+            continue;
+        }
+        newArr[newArr.length]=myArr[index];
+       }
+      myArr=newArr;
+      console.log(myArr);
+      // thêm 1 phần tử bất kỳ vào mảng
+      var newValue = "Js";
+      var newArr = [newValue];
+      for(var value of myArr){
+        myArr[newArr.length]=value;
+      }
+      console.log(newArr);
+      var users = [
+        "Tạ Hoàng An",
+        "Nguyễn Tuấn Anh",
+        "Nguyễn Văn Dũng",
+        "Phạm Văn Hiếu",
+      ];
+      var keyword = "an";
+      //Yêu cầu: Xóa tất cả phần tử mảng có chứa keyword(không phân biệt hoa,thường)
+      /*
+      B1: Duyệt qua các phần tử của mảng
+      B2: So sánh chuỗi keyword với các phần tử của mảng và lấy được các phần tử thỏa mãn điều kiện
+
+      */
+     for(var index in users){
+        var value = users[index];
+        if(value.toLowerCase().includes(keyword.toLowerCase())){
+            console.log(value,index);
+        }
+     }
+    </script>
+</body>
+</html>

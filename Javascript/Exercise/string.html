@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Chuỗi bao gồm các ký tự được đặt trong dấu nháy
+    Chuỗi là kiểu dữ liệu nguyên thủy; 
+    -->
+    <script>
+        var a = "Học lập trình không khó";
+        console.log(a);
+        // kiểm tra 1 biến có phải là kiểu chuỗi hay ko thì chúng ta sẽ phải dùng từ khóa typeof
+        if(typeof a === "string"){
+            console.log("Đây là chuỗi");
+        }
+        // ép kiểu đữ liệu khác về chuõi
+        var b =10;
+        b= b+ "";
+        console.log(typeof b);
+        // các kiểu dữ liệu nguyên thủy sẽ bọc 1 đối tượng và trong đối tượng dó sẽ có các hàm sử lý chuỗi với các kiểu dữ liệu tương ứng
+        console.log(String.prototype);
+        // console.log(Number.prototype);
+        var str = "Học lập trình";
+        //1.length:Trả về độ dài của chuỗi
+        console.log(str.length);
+        //2. charAt():Trả về ký tự theo index
+        console.log(str.charAt(1));
+        //3. charCodeAt(): Trả về mã ASCII của ký tự theo index
+        console.log(str.charCodeAt(0));
+        //4. concat: nối chuối
+        console.log(str.concat(" A","B","C"));
+        // 5. includes():Tìm chuỗi con trong chuỗi cha
+        //Nếu tìm thấy trả về true còn ngược lại sẽ trả về false.
+        console.log(str.includes("trình"));
+        //6. indexOf():Tìm chuỗi trong chuỗi cha, nếu tìm thấy thì trả về index đầu tiên tìm được,ngược lại trả về-1
+        console.log(str.indexOf("lập"));
+        // 7.lastindexOf():Tìm chuỗi trong chuỗi cha, nếu tìm thấy thì trả về index cuối cùng tìm thấy được và ngược lại thì trả về 1.
+        console.log(str.lastIndexOf("trình"));
+        //8. slice(start,end):Cắt chuỗi từ index đến end-1;
+        console.log(str.slice(0,3));
+        console.log(str.slice(5));
+        console.log(str.slice(-5));
+        //9. replace(tukhoa,thaythe):Thay thế từ khóa đầu tiên tìm được
+        console.log(str.replace("Học","Chơi"));
+        //10.replaceAll(tukhoa,thaythe):Thay thế tất cả
+        console.log(str.replaceAll("Chơi","Học"));
+        //11. split():Tách chuỗi thành mảng dựa vào ký tự phân cách
+        console.log(str.split(" "));
+        // startswith:kiểm tra chuỗi bắt đầu.
+        var pathname = "/khoa-hoc/fullstack";
+        console.log(pathname.startsWith("/khoa-hoc"));
+        //13. endsWith:Kiểm tra xem chuỗi có kết thúc bằng html hay không
+        var pathname = "/khoa-hoc/fullstack.html";
+        console.log(pathname.endsWith(".html"));
+        //14. toLowerCase(): Chuyển chữ Hoa thành chữ thường
+        //15. toUpperCase(): chuyển chữ thường thành chữ hoa
+        //16. trim(): loại bỏ khoảng trắng đầu và cuối chuỗi
+        var name = " Thiên Minh ";
+        console.log(name);
+        console.log(name.trim());
+        //17. trimstar():Loại bỏ khoảng trắng đầu chuõi
+        //18. trimend(): Loại bỏ khoảng trắng cuối chuỗi
+        //19. match():Cắt chuỗi dựa vào biểu thức chính quy\
+        var content = "Hello anh em . Số diện thoại của tôi là: 0908082233, thêm số nữa:01234242";
+        var pattern = /0\d(9) /g;
+        var phones = content.match(pattern);
+        console.log(phones);
+    </script>
+</body>
+</html>

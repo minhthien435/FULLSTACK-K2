@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array Method</h1>
+   
+    <script>
+        var numbers = [1,2,5,7,9];
+        // hàm some(Callback)
+        /*Duyệt qua từng phần tử của mảng ban đầu
+        - trả về giá trị true/false
+        - trả về true khi có ít nhất 1 lần return truthy ở callback
+        */
+       var result = numbers.some(function(value,index){
+        return value %2===0;
+       });
+       console.log(result);
+       // every(callback)==> ngược lại so với some
+       // tất cả đều đúng
+       var numbers = [1,2,5,7,9];
+       var result = numbers.every(function(value){
+        return value%2!==0;
+       });
+       console.log(result);
+       // find(callback)
+       // điều kiện giống filter
+       // trả về phần tử đầu tiên tìm được
+
+       var result1 = numbers.filter(function(number){
+        return number>2;
+       });
+       console.log(result1);
+       var result2 = numbers.find(function(number){
+        return number>2;
+       });
+       console.log(result2);
+
+       var user = [
+        ["A","A"],
+        ["B","B"],
+        ["C","C"],
+        ["D","D"],
+       ];
+       console.log(user);
+       // yêu cầu 1 :tìm index của mảng ["B","B"] trong mảng user
+    //    var index = user.indexOf(["B","B"]);
+    //    console.log(index);   
+    var targetArr = ["B","B"];
+    var index = user.findIndex(function(arr){
+        return targetArr.join() === arr.join();
+    });
+    console.log(index);
+
+    var arrA = [1,4,3,2];
+    var arrB=[5,2,6,7,1];
+    var newArr=[];
+    // for(let i =0;i<arrA.length;i++){
+    //     for(let j =0;j<arrB.length;j++){
+    //         if(arrA[i]===arrB[j]){
+    //             newArr.push(arrA[i]);
+    //         }
+            
+    //     }
+    // }
+   arrA.forEach(function(item){
+    if(arrB.includes(item)){
+        newArr.push(item);
+    }
+   });
+    console.log(newArr);
+    // tìm hiểu về reduce
+     var mang = [1,2,3];
+     var result = mang.map(function(item){
+       return item*2;
+     });
+     console.log(result);
+     // reduce(callback, initialValue)
+     /*
+     callback thì sẽ có 4 tham số
+     - prevValue
+     - currentValue
+     - index
+     - array --- Mảng ban đầu
+     initialValue = giá trị khởi tạo
+     cách hoạt động :
+     cách 1:
+     - Không có initialValue
+     - Vòng lặp chạy từ phần tử thứ 2 cho đến hết
+     - preValue của lần lặp đầu tiên chính là phần từ đầu tiên của mảng
+     - currentValue là các phần tử của mảng qua mỗi lần lặp
+      - prevValue của lần lặp sau sẽ là return của lần lặp trước 
+      - giá trị của vòng lặp về reduce sẽ là lần return cuối cùng
+
+      cách 2: có initialValue
+      - Vòng lặp chạy từ đầu
+      - prevValue của lần lặp đầu tiên chính là initialValue
+      -currentValue là các phần tử của mảng qua mỗi lần lặp
+      - prevValue của lần lặp sau sẽ là return của vòng lặp trước
+      - Giá trị của vòng lặp reduce sẽ là lần return cuối cùng
+     */
+    var numbers = [5,10,15,20,25,30];
+    // var result = numbers.reduce(function(prev,current,index){
+    //     console.log(`prev = ${prev}`,`current = ${current}`,`index=${index}`);
+    // return current;
+    
+    // }, 0 );
+
+    // console.log(result); 
+    var total = numbers.reduce(function(prev,current){
+        return prev+current;
+    },0);
+    console.log(total);
+    var myArr = [2,9,5,1,2,-5];
+    //  tìm phần tử lớn nhất dùng reduce
+    //  var maxNumber = myArr.reduce(function(prev,current){
+    //     if(current>prev){
+    //         return current;
+    //     }
+    //     return prev;
+    //  });
+    var maxValue =myArr[0];
+    for(let index in myArr){
+        let i = parseInt(index);
+        var currentValue = myArr[i];
+        if(currentValue>maxValue){
+            maxValue=currentValue;
+        }
+       
+    }
+     console.log(maxValue);
+     var userName = ["An","Tùng","Đạt","Quân","Tùng","Nam"];
+     // xóa các phần tử trong mảng users 
+     // yêu cầu dùng reduce 
+    var deleteItem = userName.reduce(function(sort,currentValue){
+        if(!sort.includes(currentValue)){
+            sort.push(currentValue);
+        }
+        return sort;
+    },[]);
+     // giá trị khởi tạo ở đây là một mảng rỗng
+     console.log(deleteItem);
+     var arr1 = [5,2,1,6,9];
+     var arr2=[2,1,6];
+     // tìm phần tử khác nhau giữa 2 mảng có trong mảng thứ nhất nhưng không có trong mảng thứ 2
+    var differItem = arr1.reduce(function(prev,currentValue){
+      // xét xem currentvalue có trong arr2 không
+      if(!arr2.includes(currentValue) && !prev.includes(currentValue)){
+        prev.push(currentValue);
+      } 
+      return prev;
+    },[]);
+     console.log(differItem);
+
+     var numbers = [1,[2,3],4,[[5,6]],7,[[[8,9]]]];
+     // làm phẳng mặt numbers 
+     // dùng reduce
+     // không dùng hàm flat
+     let printOut=[];
+     let recursiveItem=function(arr){
+        for(let i =0;i<arr.length;i++){
+            let value = arr[i];
+            if(Array.isArray(value)){
+                recursiveItem(value);
+            }else{
+                printOut.push(value);
+            }
+        }
+        return printOut;
+     };
+     console.log(recursiveItem(numbers));
+
+      var flatArray = function(arr){
+        return arr.reduce(function(prev,current){
+            return prev.concat(Array.isArray(current) ? flatArray(current):current
+            );
+        },[]);
+      }
+      var newArr = flatArray(numbers);
+      console.log(newArr);
+      var mang = [1,2,3,4,5,6,7,8,9];
+      var size=2;
+      // chunk array với size tương ứng
+      // Output: [[1,2],[3,4],[5,6],[7,8],[9]]
+      // ý tưởng:
+      var chunkArray=mang.reduce(function(prev,current){
+        // kiểm tra số lượng phàn tử của mảng con cuối cùng 
+        if(prev[prev.length-1].length < size){
+        // thêm phần tử mới vào mảng con
+            prev[prev.length-1].push(current);
+        }else{
+        // ngược lại thêm 1 mảng mới (thêm một đoạn mới)
+             prev.push([current]);
+        }
+        return prev;
+      },
+      [[]]
+    );
+      console.log(chunkArray);
+     var chunkArr2=numbers.reduce(function(prev,index){
+        if(index % size ===0){
+            var subArr = numbers.slice(index,index+size);
+            prev.push(subArr);
+        }
+     },[]);
+     console.log(chunkArr2);
+     // Array,Object:Khi gán 1 biến bằng 1 array thì object ==> biến mới copy địa chỉ của biến củ
+    // ==> 2 biến cùng 1 địa chỉ
+     // copy array
+     var oldArr = ["Hoàng An","hoangan.web@gmail.com"];
+     var newArr = oldArr;
+     // shallow Copy
+     // - sử dụng các phương thức trả về mảng mới 
+     var newArray = oldArr.map(function(item){
+        return item;
+     });
+    //  var newArr= oldArr.slice(0);
+     // spread-operator
+     var newArr =[...oldArr];
+     
+     // deep copy
+     // sử dụng JSON: chuyển mảng thành json,chuyển ngược lại (json về mảng)
+     var json =JSON.stringify(oldArr);
+     var newArr=JSON.parse(json);
+     newArr[0]="Hoàng An f8";
+     console.log(newArr);
+     console.log(oldArr);
+
+     var arrayList = [4,2,6,7,3,1];
+     for(let i =0;i<arrayList.length-1;i++){
+        for(let j =i+1;j<arrayList.length;j++){
+            if(arrayList[i]>rrayList[j]){
+                let temp = arrayList[i];
+                arrayList[i]===arrayList[j];
+               arrayList[j]=temp;
+            }
+        }
+     }
+     console.log(arrayList);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // console.dir(Object);
+        var user ={
+            name:"Hoang An",
+            email:"minh@gmail.com",
+        };
+        console.log(user);
+        var user2= Object.create(null);
+        
+        user2.name="Thien Minh";
+        user2.email="minh@gmail.com";
+        console.log(user2);
+        // Onject.create con co tac dung ke thua cua prototype
+        // tham chieu
+        var a ={
+            name:"Thien Minh",
+            email:"minh@gmail.com",
+        };
+        // shallow copy
+        var b = Object.assign({},a);
+        var b = {...a};
+        // Deep copy
+        var b = JSON.parse(JSON.stringify(a));
+        b.name="Thien Minh F8";
+        console.log(a);
+        console.log(b);
+        var users = [{
+            name:"User 1",
+            email:"user1@gmail.com",
+        },
+        {
+            name:"User 2",
+            email:"user2@gmail.com",
+        },
+        {
+            name:"User 3",
+            email:"user3@gmail.com",
+        },
+        {
+            name:"User 4",
+            email:"user4@gmail.com",
+        }
+    ]
+    var email = "user2@gmail.com";
+    // yeu cau: tim user co email tren va sua ten
+    var user = users.find(function(user){
+        return user.email===email;
+    });
+    user.name="User 2 Update";
+    document.write(`<table width="100%" border="1">
+        <thead>
+            <tr>
+                <th width="5%">STT</th>
+                <th>Ten</th>
+                <th>Email</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        ${users.map(function(user,index){
+            return `<tr>
+                <td>${index+1}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+            </tr>`
+        }).join(' ')}
+    </table>`);
+    /*
+    1.String
+    2.Number
+    3.BigInt
+    4.Boolean
+    5.Symbol
+    6.undefined
+    7.null
+    8.Object
+    */
+//    var a ={value:1};
+//    var b = {value:1};
+//    var c=a;
+//    console.log(a==b);
+//    console.log(a==c);
+   // Number la kieu du lieu nguyen thuy
+   // ham tao cua number la number
+   console.dir(Number); 
+//    var a =10;
+//    if(typeof a ==="number"){
+//     console.log("Day la so");
+//    }
+   // ep kieu du lieu ve number
+   var b = "10";
+    // b=Number(b);
+    b=+b;
+   console.log(typeof b,b);
+  b = parseInt(b);// ep ve so nguyen
+  b= parseFloat(b); // ep ve so thuc
+// kiem tra 1 so co phai la so nguyen 
+
+//   var  a = 10.5;
+//   if(Number.isInteger(a)){
+//     console.log("Day la so nguyen");
+//   }else{
+//     console.log("Day la so thuc");
+//   }
+
+
+    // so NaN (Not a number)
+
+    // var a =10;
+    // var b = "F8";
+    // var c = a*b;
+    // console.log(c);
+    // if(Number.isNaN(c)){
+    //     console.log("Loi tinh toan");
+    // }
+
+
+    // So infinity: vuot qua kha nang luu tru
+    var a =10000;
+    var b= 10000;
+    var c = a **b;
+    var d = 50000 ** 50000;
+    console.log(c);
+    console.log(d);
+    console.log(c === d);
+    if(c === Infinity || c === -Infinity){
+        console.log("Vuot qua kha nang luu tru");
+    }
+
+    // toFixed(): Lay so chu so phan thap phan va lam tron 
+    // var price = 12345.6789;
+    // console.log(price.toFixed(2));
+    // console.log(price.toPrecision(5));// tinh tu dau truoc dau cham
+    
+    var price = 2000000000000;
+    console.log(price.toLocaleString("vi-VN"));
+    console.log(price.toLocaleString("en-US"));
+    
+    </script>
+</body>
+</html>

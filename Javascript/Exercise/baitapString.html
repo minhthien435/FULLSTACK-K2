@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        span{
+            background:yellow;
+        }
+    </style>
+    <script>
+        // // var email="Hoangan.web@gmail.com";
+        // // // viết chương xử lý trả về username của email
+        // // // Bước 1: Tìm index của ký tự @ --> Dùng hảm indexOf();
+        // // // Bước 2: Cắt từ đầu đến index vừa tìm được
+        // // var username = email.slice(0,email.indexOf('@'));
+        // // console.log(username);
+        // // // Bài 2: Viết hàm kiểm tra 1 chuỗi xem có phải là chữ Hoa hay không?
+        // // function isUpper(str){
+        // //     return str ===str.toUpperCase();
+        // // }
+        // console.log(isUpper("TẠ HOÀNG AN"));
+        var content = `<h1>Học lập trình không khó</h1>`;
+        var keyword = "trình";
+        var position = content.toLowerCase().indexOf(keyword.toLowerCase());
+        content = 
+        content.slice(0,position) +
+        `<span>${content.slice(position,position.keyword.length)}</span` +
+        content.slice(position + keyword.length);
+        console.log(content);
+        document.body.innerHTML = content;
+
+
+    </script>
+</body>
+</html>
