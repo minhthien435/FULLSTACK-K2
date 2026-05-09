@@ -99,4 +99,15 @@ Document
  - DOM Event Listener
  - DOM Node, NodeList
  - DOM Navigation
- - 
+
+# FetchAPI
+## HTTPRequest
+-Một yêu cầu HTTP thường bao gồm 4 yếu tố chính:
+
+- URL (Endpoint): Địa chỉ nơi bạn gửi yêu cầu đến (Ví dụ: [https://api.example.com/users](https://api.example.com/users)).
+
+- Method (Phương thức): Hành động bạn muốn thực hiện.
+
+- Headers: Các thông tin bổ sung (như kiểu dữ liệu, mã xác thực/token).
+
+- Body (Thân bài): Dữ liệu bạn muốn gửi lên server (thường dùng cho POST hoặc PUT).

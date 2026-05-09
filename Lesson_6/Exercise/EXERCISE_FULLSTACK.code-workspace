@@ -3,6 +3,12 @@
         {
             "name": "EXERCISE_FULLSTACK",
             "path": "../.."
+        },
+        {
+            "path": "../../../TodoApp"
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "EXERCISE_FULLSTACK"
+    }
 }
